@@ -25,9 +25,6 @@ jobs:
       with:
         terraform_version: 1.5.2
 
-    - name: Cleanup Terraform directory
-      run: rm -rf .terraform
-
     # 3. Inicializar Terraform
     - name: Terraform Init
       env:
