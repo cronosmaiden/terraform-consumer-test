@@ -1,0 +1,18 @@
+# Archivos generados por Terraform
+.terraform/
+.terraform.lock.hcl
+
+# Archivos de estado de Terraform
+terraform.tfstate
+terraform.tfstate.backup
+
+# Archivos de estado de Terraform para configuraciones remotas
+*.tfstate
+*.tfstate.*
+
+# Archivos de salida o logs
+crash.log
+*.log
+
+# Archivos de variables sensibles
+*.tfvars.json
