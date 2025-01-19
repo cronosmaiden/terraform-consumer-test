@@ -25,10 +25,6 @@ jobs:
       with:
         terraform_version: 1.5.2
 
-    - name: Cleanup Terraform directory
-      run: rm -rf .terraform .terraform.lock.hcl terraform.tfstate terraform.tfstate.backup
-
-
     # 3. Inicializar Terraform
     - name: Terraform Init
       env:
@@ -36,24 +32,10 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform init
 
-    # 4. Validar la configuración de Terraform
-    - name: Terraform Validate
+    # Destruir los recursos
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform validate
-
-    # 5. Generar un plan de Terraform
-    - name: Terraform Plan
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform plan
-
-    # 6. Aplicar los cambios en AWS
-    - name: Terraform Apply
-      if: github.event_name == 'push'
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve
+        AWS_DEFAULT_REGION: "us-east-1" # Ajusta según tu región
