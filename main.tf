@@ -24,7 +24,7 @@ module "lambda" {
   source = "git::https://github.com/cronosmaiden/terraform-module-test.git//lambda?ref=main"
 
   lambda_function_name        = var.lambda_function_name
-  lambda_function_role        = var.lambda_function_role
+  lambda_function_role        = module.lambda.lambda_execution_role_arn
   lambda_function_runtime     = var.lambda_function_runtime
   lambda_function_filename    = var.lambda_function_filename
   lambda_function_handler     = var.lambda_function_handler
@@ -68,5 +68,5 @@ module "waf" {
   rate_limit      = var.rate_limit
 
   waf_rules = var.waf_rules
-  resource_arn = module.api_gateway.api_gateway_id
+  resource_arn = module.api_gateway.api_gateway_execution_arn
 }

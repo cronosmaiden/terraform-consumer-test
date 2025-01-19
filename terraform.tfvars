@@ -1,7 +1,6 @@
 region = "us-east-1"
 
 lambda_function_name        = "test-lambda"
-lambda_function_role        = "arn:aws:iam::801995017684:role/lambda-execution-role"
 lambda_function_filename    = "lambda_function.zip"
 lambda_function_handler     = "lambda_function.lambda_handler"
 

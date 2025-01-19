@@ -18,8 +18,9 @@ variable "lambda_function_name" {
 }
 
 variable "lambda_function_role" {
-  description = "ARN del rol de ejecución de la Lambda."
+  description = "ARN del rol de ejecución de la Lambda. Si no se especifica, se usará el rol creado por el módulo Lambda."
   type        = string
+  default     = null
 }
 
 variable "lambda_function_runtime" {
