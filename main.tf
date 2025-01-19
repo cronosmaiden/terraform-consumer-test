@@ -52,8 +52,8 @@ module "api_gateway" {
   cognito_issuer                 = var.cognito_issuer
   lambda_integration_uri         = module.lambda.lambda_arn
   default_route_key              = var.default_route_key
-  waf_arn = module.waf.waf_arn
-  region = var.region
+  waf_arn                        = module.waf.waf_arn
+  region                         = var.region
 }
 
 ############################
@@ -67,7 +67,6 @@ module "waf" {
   waf_description = var.waf_description
   rate_limit      = var.rate_limit
 
-  waf_rules = var.waf_rules
-  resource_arn = "arn:aws:apigateway:${var.region}::/restapis/${module.api_gateway.api_gateway_id}/stages/prod"
+  waf_rules   = var.waf_rules
+  resource_arn = module.api_gateway.api_gateway_execution_arn # ¡Usar execution_arn!
 }
-
