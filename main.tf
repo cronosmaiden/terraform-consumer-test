@@ -69,4 +69,6 @@ module "waf" {
 
   waf_rules   = var.waf_rules
   resource_arn = module.api_gateway.api_gateway_stage_arn
+  region         = var.region
+  api_gateway_id = module.api_gateway.api_gateway_id
 }
