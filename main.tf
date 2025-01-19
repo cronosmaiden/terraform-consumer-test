@@ -68,5 +68,5 @@ module "waf" {
   rate_limit      = var.rate_limit
 
   waf_rules   = var.waf_rules
-  resource_arn = module.api_gateway.api_gateway_execution_arn # ¡Usar execution_arn!
+  resource_arn = module.api_gateway.api_gateway_stage_arn
 }
