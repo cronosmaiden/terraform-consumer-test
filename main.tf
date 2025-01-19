@@ -52,8 +52,8 @@ module "api_gateway" {
   cognito_issuer                 = var.cognito_issuer
   lambda_integration_uri         = module.lambda.lambda_arn
   default_route_key              = var.default_route_key
-
   waf_arn = module.waf.waf_arn
+  region = var.region
 }
 
 ############################
