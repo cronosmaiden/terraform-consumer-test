@@ -68,5 +68,7 @@ module "waf" {
   rate_limit      = var.rate_limit
 
   waf_rules   = var.waf_rules
-  resource_arn = module.api_gateway.api_gateway_stage_arn
+  resource_arn    = "arn:aws:apigateway:${var.region}::/restapis/${module.api_gateway.api_gateway_id}/stages/prod"
+  region          = var.region
+  api_gateway_id  = module.api_gateway.api_gateway_id
 }
