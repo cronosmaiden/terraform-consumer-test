@@ -9,7 +9,7 @@ cognito_authorizer_name     = "test-cognito-authorizer"
 cognito_audience            = ["my-audience"]
 cognito_issuer              = "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_vOMqDsNli"
 
-waf_name                    = "test-waf-new"
+waf_name                    = "test-waf-new2"
 rate_limit                  = 1000
 
 waf_rules = [
