@@ -48,7 +48,7 @@ module "api_gateway" {
   apigateway_rest_name           = var.apigateway_rest_name
   apigateway_rest_description    = var.apigateway_rest_description
   default_route_path_part        = var.default_route_path_part
-  lambda_integration_uri         = module.lambda.lambda_arn
+  lambda_integration_uri = "arn:aws:apigateway:${var.region}:lambda:path/2015-03-31/functions/${module.lambda.lambda_arn}/invocations"
   lambda_integration_http_method = var.lambda_integration_http_method
   waf_arn                        = module.waf.waf_arn
   region                         = var.region
