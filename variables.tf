@@ -70,39 +70,30 @@ variable "lambda_function_environment_variables" {
 }
 
 ############################
-# Variables del API Gateway
+# Variables del API Gateway REST
 ############################
 
-variable "apigateway_http_name" {
-  description = "Nombre del API Gateway HTTP."
+variable "apigateway_rest_name" {
+  description = "Nombre del API Gateway REST."
   type        = string
 }
 
-variable "cognito_authorizer_name" {
-  description = "Nombre del autorizador Cognito."
+variable "apigateway_rest_description" {
+  description = "Descripción del API Gateway REST."
   type        = string
+  default     = "API Gateway REST para Lambda"
 }
 
-variable "cognito_identity_sources" {
-  description = "Fuentes de identidad para el autorizador Cognito."
-  type        = list(string)
-  default     = ["$request.header.Authorization"]
-}
-
-variable "cognito_audience" {
-  description = "Audiencia permitida para los tokens JWT en Cognito."
-  type        = list(string)
-}
-
-variable "cognito_issuer" {
-  description = "URL del emisor de los tokens JWT (Cognito User Pool)."
+variable "default_route_path_part" {
+  description = "Path del recurso base del API Gateway REST."
   type        = string
+  default     = "my-resource"
 }
 
-variable "default_route_key" {
-  description = "Clave de la ruta predeterminada del API Gateway."
+variable "lambda_integration_http_method" {
+  description = "Método HTTP para la integración Lambda."
   type        = string
-  default     = "ANY /"
+  default     = "POST"
 }
 
 ############################

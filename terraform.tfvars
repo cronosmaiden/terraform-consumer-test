@@ -4,10 +4,9 @@ lambda_function_name        = "test-lambda-new"
 lambda_function_filename    = "lambda_function.zip"
 lambda_function_handler     = "lambda_function.lambda_handler"
 
-apigateway_http_name        = "test-api-gateway"
-cognito_authorizer_name     = "test-cognito-authorizer"
-cognito_audience            = ["my-audience"]
-cognito_issuer              = "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_vOMqDsNli"
+apigateway_rest_name        = "test-api-gateway-rest"
+default_route_path_part     = "my-resource"
+lambda_integration_http_method = "POST"
 
 waf_name                    = "test-waf-new"
 rate_limit                  = 1000
