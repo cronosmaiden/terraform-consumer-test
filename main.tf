@@ -33,8 +33,6 @@ module "lambda" {
   lambda_function_timeout            = var.lambda_function_timeout
   lambda_function_description        = var.lambda_function_description
   lambda_function_environment_variables = var.lambda_function_environment_variables
-
-  # Pasar el ARN de ejecución del API Gateway
   api_gateway_source_arn = module.api_gateway.api_gateway_execution_arn
 }
 
